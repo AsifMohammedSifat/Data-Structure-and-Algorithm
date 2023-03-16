@@ -9,14 +9,16 @@
 ||-----------------------||
 
 /*
-DFS Implementation: 
+DFS Implementation:
                     1)Using Stack  2)Using Recursion
 
-        1
-       / \
-      2   3
-     / \
-    4---5
+
+
+                                                                      1
+                                                                     / \
+                                                                    2   3
+                                                                   / \
+                                                                  4---5
 
 Input:
 5 5
@@ -40,10 +42,10 @@ DFS-iterative(src): // src as source node
         //Pop a vertex from stack to visit next
         ver = st.top()
         st.pop()
-        
+
         if ver is visited:
             continue
-        
+
         print ver
         mark ver as visited
 
@@ -60,12 +62,28 @@ Summary:
             i)Store and pop
             ii)Task + Mark -- In Conditon
             iii)Child Push -- In Conditon
+
+
+2)PseudoCode of using Recursion:
+
+    DFS-recursion(src):
+        print src
+        mark src as visited
+
+        for all adj_node child of src in Graph:
+            if child is not visited:
+                Dfs-recursion(child);
+
+
+Complexity of DFS:
+        Time Complexity: O(V+E)
+        Space Complexity: O(V)
 */
 
 #include<bits/stdc++.h>
 using namespace std;
 const int N = 1e5;
-vector<int> arr[N];
+vector<int> arr[N]; //space-> O(V) vertex/node
 int visited[N] = {0};
 
 
@@ -74,7 +92,7 @@ int dfs_Stack(int node){
     stack<int> st;
     st.push(node);
 
-    while(!st.empty()){
+    while(!st.empty()){ //Time -> O(v) //v means vertex/node
         //store + Pop
         int ver = st.top();
         st.pop();
@@ -87,10 +105,25 @@ int dfs_Stack(int node){
         visited[ver] = 1;
 
         //Child Push In Condition
-        for(auto child: arr[ver]){
+
+        for(auto child: arr[ver]){ //Time -> O(2E) = O(E)
             if(visited[child]==0){
                 st.push(child);
             }
+        }
+    }
+}
+
+//using recursion
+dfs_recursion(int node){
+    cout<<node<<" ";
+    visited[node] = 1;
+
+    for(auto child: arr[node]){
+        if(visited[child]==1){
+            continue;
+        }else{
+            dfs_recursion(child);
         }
     }
 }
@@ -107,6 +140,8 @@ int main(){
         arr[y].push_back(x);
     }
 
-    dfs_Stack(1);
+    //dfs_Stack(1);
+    cout<<endl;
+    //dfs_recursion(1);
 
 }
