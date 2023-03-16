@@ -12,11 +12,9 @@
 DFS Implementation: 
                     1)Using Stack  2)Using Recursion
 
-
-
-        0
+        1
        / \
-      1   2
+      2   3
      / \
     4---5
 
