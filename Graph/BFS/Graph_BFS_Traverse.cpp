@@ -6,6 +6,8 @@
 ||Phitron,ProgrammingHero||
 ||-----------------------||
 Topic: BFS on Graph
+        Here BFS() implemented in two Type.
+        
         1)Searching 2)Shortest Path Finding
         Input:
         BFS(2)
@@ -33,7 +35,7 @@ using namespace std;
 
 vector<int> arr[1000];
 bool visited[1000];
-
+// Type : 01
 void BFS(int source){
     memset(visited,false,sizeof(visited));
     queue<int>q;
@@ -60,6 +62,28 @@ void BFS(int source){
     }
 
 }
+
+//Type : 02
+void bfs(int start) {
+    queue<int> q;
+    q.push(start);
+    visited[start] = true;
+
+    while (!q.empty()) {
+        int curr = q.front();
+        q.pop();
+        cout << curr << " ";
+
+        for (int i = 0; i < n; i++) {
+            if (adj[curr][i] && !visited[i]) {
+                visited[i] = true;
+                q.push(i);
+            }
+        }
+    }
+}
+
+
 void buildGraph(){
     fast;
     int nodes,edge;
