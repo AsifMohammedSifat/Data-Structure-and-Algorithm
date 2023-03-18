@@ -8,8 +8,25 @@
 Topic: BFS on Graph
         Here BFS() implemented in two Type.
         
-        Requirment:
-        Graph->adjacency list->Input
+       Summary:
+       Type:01
+        Summary:
+        1)Graph-> adjacency List
+        2)Create Queue + visited Array
+        3)Push Source in Queue
+        4)While Queue is not empty:
+            i)Store and pop + cindition
+            ii)Task + Mark -- In Conditon
+            iii)Child Push -- In Conditon
+            
+       Type:02
+        1)Graph-> adjacency List
+        2)Create Queue + visited Array
+        3)Push Source in Queue + Mark in visited array
+        4)While stack is not empty:
+            i)Store and pop
+            ii)Task 
+            iii)Child Push + mark -- In Conditon
         
         1)Searching 2)Shortest Path Finding
         Input:Type-01
@@ -75,8 +92,7 @@ void BFS(int source){
         if(visited[frnt]==true){
             continue;
         }
-
-        //task
+         //task
         cout<<frnt<<endl;
         visited[frnt] = true;
 
