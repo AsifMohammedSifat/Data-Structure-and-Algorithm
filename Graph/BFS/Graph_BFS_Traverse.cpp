@@ -8,9 +8,11 @@
 Topic: BFS on Graph
         Here BFS() implemented in two Type.
         
+        Requirment:
+        Graph->adjacency list->Input
+        
         1)Searching 2)Shortest Path Finding
-        Input:
-        BFS(2)
+        Input:Type-01
         5 6
         1 2
         1 3
@@ -24,6 +26,32 @@ Topic: BFS on Graph
                 0
                 4
                 3
+        Sample Input-0:Type:2
+        5
+        0 1
+        0 2
+        1 3
+        1 4
+        3 4
+        Sample Output-0:
+        0 1 2 3 4
+
+
+        Sample Input-1:
+        11
+        0 1
+        0 2
+        1 3
+        1 4
+        2 5
+        2 6
+        3 4
+        5 6
+        5 7
+        5 8
+        6 9
+        Sample Output-1:
+        0 1 2 3 4 5 6 7 8 9
 */
 
 #include<bits/stdc++.h>
@@ -31,10 +59,10 @@ Topic: BFS on Graph
 #define pub push_back
 using namespace std;
 
+const int N = 1e5;
+int visited[N];
+vector<int> adj_list[N];
 
-
-vector<int> arr[1000];
-bool visited[1000];
 // Type : 01
 void BFS(int source){
     memset(visited,false,sizeof(visited));
@@ -64,38 +92,56 @@ void BFS(int source){
 }
 
 //Type : 02
-void bfs(int start) {
-    queue<int> q;
-    q.push(start);
-    visited[start] = true;
 
-    while (!q.empty()) {
-        int curr = q.front();
+void bfs(int src){
+    queue<int>q;
+    q.push(src);
+    visited[src] = 1;
+
+    while(!q.empty()){
+        int node = q.front();
         q.pop();
-        cout << curr << " ";
 
-        for (int i = 0; i < n; i++) {
-            if (adj[curr][i] && !visited[i]) {
-                visited[i] = true;
-                q.push(i);
+        //task
+        cout<<node<<" ";
+        
+           //accessing node's child
+        //using for loop
+//        for(int i=0;i<adj_list[node].size();i++){
+//            int val = adj_list[node][i];
+//            if(visited[val]==0){
+//                q.push(val);
+//                visited[val]=1;
+//            }
+//        }
+//
+        //using for each loop
+        for(auto child: adj_list[node]){
+                if(visited[child]==0){
+                q.push(child);
+                visited[child]=1;
             }
+
         }
     }
+
 }
 
 
 void buildGraph(){
     fast;
-    int nodes,edge;
-    cin>>nodes>>edge;
-//    vector<int> arr[1000];
+     memset(visited,0,sizeof(visited));
+    int edge;
+    cin>>edge;
+
     while(edge--){
         int x,y;
         cin>>x>>y;
-        arr[x].pub(y);
-        arr[y].pub(x);
+        adj_list[x].push_back(y);
+        adj_list[y].push_back(x);
+
     }
-    BFS(2);
+    bfs(0);
 
 
 //    arr[1].pub(2);
