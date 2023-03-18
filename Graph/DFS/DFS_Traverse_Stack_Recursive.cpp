@@ -19,6 +19,14 @@ DFS Implementation:
                                                                     2   3
                                                                    / \
                                                                   4---5
+                                                                  
+                                                                          0
+                                                                        /   \
+                                                                       1     2
+                                                                      / \   / \
+                                                                     3---4 5---6
+                                                                          / \  /
+                                                                         7   8 9
 
 Input:
 5 5
@@ -30,6 +38,20 @@ Input:
 4 5
 Output:
     1 3 2 5 4
+
+Sample Input:
+11
+0 1
+0 2
+1 3
+1 4
+2 5
+2 6
+3 4
+5 6
+5 7
+5 8
+6 9
 
 1)PseudoCode of using Stack:
 
@@ -111,6 +133,29 @@ int dfs_Stack(int node){
                 st.push(child);
             }
         }
+    }
+}
+//uisng stack method-02
+
+void dfs(int src){
+    stack<int>st;
+    st.push(src);
+    visited[src] = 1;
+
+    while(!st.empty()){
+        int node = st.top();
+        st.pop();
+
+        cout<<node<<" ";
+
+        for(int i=0;i<adj_list[node].size();i++){
+            int val = adj_list[node][i];
+            if(visited[val]==0){
+                st.push(val);
+                visited[val] = 1;
+            }
+        }
+
     }
 }
 
