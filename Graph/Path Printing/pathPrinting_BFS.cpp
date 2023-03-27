@@ -7,7 +7,7 @@
 ||Phitron,ProgrammingHero||
 ||-----------------------||
 
-Problem Link: https://cses.fi/problemset/result/5732874/
+Problem Link: https://cses.fi/problemset/task/1667/
 
 */
 #include <bits/stdc++.h>
