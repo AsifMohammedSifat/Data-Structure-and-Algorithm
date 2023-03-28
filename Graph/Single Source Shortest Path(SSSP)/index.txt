@@ -13,6 +13,8 @@ BFS:
                   Solution:
                   Dijkstra or Bellman-Ford algorithm it can be possible
 DFS:
-    Not-Possible to determine Single Source Shortest Path
+    i) Not-Possible to determine Single Source Shortest Path.
+    
+   ii)  Only possible on Directed Acyclic Graph + Topological Sort
 
              
