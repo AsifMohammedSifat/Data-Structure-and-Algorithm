@@ -6,12 +6,12 @@
 ||   CS Instructor       ||
 ||Phitron,ProgrammingHero||
 ||-----------------------||
-
-                        Cycle Detection in--> 3 Undirected_DFS_Stack.cpp
+* /      
+                            Cycle Detection in Graph--> Undirected_DFS_STACK
             Make Visual Representaiton: https://csacademy.com/app/graph_editor/
 
 
-BFS:
+Sample Input-01:
 5 4
 
 1 3
@@ -20,20 +20,26 @@ BFS:
 4 5
 Output: No Cycle
 
-5 6
 
-1 3
+Sample Input-02:
+
+8 7
 1 2
-5 3
-1 5
+2 3
 2 4
-4 5
-
+3 5
+6 7
+7 8
+6 8
 Output: Cycle Exist
-=============================
-DFS:
+
 
 */
+
+
+
+
+
 #include<bits/stdc++.h>
 using namespace std;
 
@@ -45,7 +51,7 @@ int visited[N];
 vector<int> adjList[N];
 int parent[N];
 
-bool bfs(int src){
+bool dfs(int src){
     stack<int> q;
 
     visited[src] = 1;
@@ -76,7 +82,6 @@ bool bfs(int src){
 }
 
 
-
 int main() {
     cin>>node>>edge;
 
@@ -86,14 +91,13 @@ int main() {
         adjList[u].push_back(v);
         adjList[v].push_back(u);
     }
-
-    bool cycle = true;
+    bool cycle;
     for(int i=1;i<=node;i++){
         if(visited[i]==0){
-            bool ok = bfs(i);
+            cycle = true;
+            bool ok = dfs(i);
             if(!ok){
                 cycle = false;
-                break;
             }
         }
     }
