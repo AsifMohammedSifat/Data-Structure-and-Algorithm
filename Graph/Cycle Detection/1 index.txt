@@ -1,0 +1,7 @@
+                                        Cycle Detection 
+                                       ==================
+             i)Directed                                                       ii)Undirected
+            ==============                                                    =================
+            1)BFS(Topological Sort Uisng Kahn's Algorithm)                    1)BFS(Queue)
+            2)DFS(Recursion+Stack)                                            2)DFS(Recursion+Stack)
+                                                                              3)Unorder set or Union Find
