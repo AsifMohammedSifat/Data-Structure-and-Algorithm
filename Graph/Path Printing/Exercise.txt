@@ -1,0 +1,1 @@
+1) CSES Labyrinth: https://cses.fi/problemset/task/1193/
