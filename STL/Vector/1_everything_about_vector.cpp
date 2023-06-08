@@ -131,6 +131,15 @@ int main()
     num.swap(example); // num = {10,20,30} & example = {1,2,3,4,5};
     vector<int>().swap(num); // num vector is empty by anonymus vector funciton
 
+    //push_back() and pop_back()
+    vector<int> num ={1,2,3,4,5};
+    num.push_back(6); //1,2,3,4,5,6
+    num.pop_back(); //1,2,3,4,5
+    num.front();//1
+    num.back();//5
+
+
+
 
 
 
