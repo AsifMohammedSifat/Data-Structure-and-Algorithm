@@ -20,6 +20,7 @@ int main()
      * Capacity: size,resize,capacity,max_size,empty
      * Modifiers: assign,push_back,pop_back,insert,erase,clear
      * Iterator: begin,end,rbegin,rend
+     * Others: replace(), reverse(), find()
      *
      */
 
@@ -98,45 +99,83 @@ int main()
     //===========Modifiers: assign,push_back,pop_back,insert,erase,swap,clear===============//
 
     // assign()
-    vector<int> numbers(5); 
-    vector<int> number = {1,2,3,4,5};
+    vector<int> numbers(5);
+    vector<int> number = {1, 2, 3, 4, 5};
     numbers = number;
-    numbers.assign(number.begin(),number.end()); // it works like -> numbers = number
-    numbers.assign(10, 42); // resize to 10 and assign 42  //42 42 42 42 42 42 42 42 42 42
+    numbers.assign(number.begin(), number.end()); // it works like -> numbers = number
+    numbers.assign(10, 42);                       // resize to 10 and assign 42  //42 42 42 42 42 42 42 42 42 42
 
+    // insert()
+    vector<int> num = {1, 2, 3, 4, 5};
+    vector<int> example = {10, 20, 30};
 
-    //insert()
-    vector<int> num ={1,2,3,4,5};
-    vector<int> example = {10,20,30};
+    num.insert(num.begin() + 2, 50);                             // 1 2 50 3 4 5
+    num.insert(num.begin() + 2, 3, 50);                          // 1 2 50 50 50 3 4 5
+    num.insert(num.begin() + 2, example.begin(), example.end()); // 1 2 10 20 30 3 4 5
 
-    num.insert(num.begin()+2,50); // 1 2 50 3 4 5
-    num.insert(num.begin()+2,3,50); //1 2 50 50 50 3 4 5
-    num.insert(num.begin()+2,example.begin(),example.end()); // 1 2 10 20 30 3 4 5
+    // erase()
+    vector<int> num = {1, 2, 3, 4, 5};
 
+    num.erase(num.begin() + 2);                  // 1 2 4 5
+    num.erase(num.begin() + 1, num.begin() + 4); // 1 5
 
-    //erase()
-    vector<int> num ={1,2,3,4,5};
-
-    num.erase(num.begin()+2); // 1 2 4 5
-    num.erase(num.begin()+1,num.begin()+4); // 1 5
-
-    //clear()    
-    vector<int> num ={1,2,3,4,5};
+    // clear()
+    vector<int> num = {1, 2, 3, 4, 5};
     num.clear(); // it set the size of vector 0.But,not permanently delete vector element
 
-    //swap()
-    vector<int> num ={1,2,3,4,5};
-    vector<int> example = {10,20,30};
+    // swap()
+    vector<int> num = {1, 2, 3, 4, 5};
+    vector<int> example = {10, 20, 30};
 
-    num.swap(example); // num = {10,20,30} & example = {1,2,3,4,5};
+    num.swap(example);       // num = {10,20,30} & example = {1,2,3,4,5};
     vector<int>().swap(num); // num vector is empty by anonymus vector funciton
 
-    //push_back() and pop_back()
-    vector<int> num ={1,2,3,4,5};
-    num.push_back(6); //1,2,3,4,5,6
-    num.pop_back(); //1,2,3,4,5
-    num.front();//1
-    num.back();//5
+    // push_back() and pop_back()
+    vector<int> num = {1, 2, 3, 4, 5};
+    num.push_back(6); // 1,2,3,4,5,6
+    num.pop_back();   // 1,2,3,4,5
+    num.front();      // 1
+    num.back();       // 5
+
+    //===========Iterator: begin,end,rbegin,rend===============//
+
+    vector<int> v = {1, 2, 3, 4, 5};
+    vector<int>::iterator it;
+    vector<int>::reverse_iterator it1;    
+   
+
+    for (auto it = v.begin(); it < v.end(); it++)
+    {
+        cout << *it << " ";
+    }
+
+    for (vector<int>::iterator it = v.begin(); it < v.end(); it++)
+    {
+        cout << *it << " ";
+    }
+
+    //reverse_iterator print elements in reverse
+    for (vector<int>::reverse_iterator it1 = v.rbegin(); it1 < v.rend(); it1++)
+    {
+        cout << *it1 << " ";
+    }
+
+
+    //===========Others: replace(), reverse(),sort(), find()===============//
+
+    //reverse(), sort(),
+    vector<int> num = {1,2,3,4,5};
+    reverse(num.begin(),num.end()); // 5 4 3 2 1
+    sort(num.begin(),num.end());//1 2 3 4 5
+    sort(num.begin(),num.end(),greater<int>());//5 4 3 2 1 
+
+    //find()
+    vector<int>v={1,2,2,4,3,5,1,2,4,5,3,2};
+    auto it = find(v.begin(),v.end(),100);
+    if(it == v.end()) cout<<"Not found";
+    else cout<<"Found"<<endl;
+
+    //replace()
 
 
 
