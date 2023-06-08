@@ -24,13 +24,13 @@ int main()
      *
      */
 
-    //===========How to declear & initialize vector===============//
+    //========================================================How to declear & initialize vector===========================================================================//
 
     vector<int> vec;                   // vector<data_type> vector_name; // Empty vector of integers
     vector<int> vec1(5, 0);            // vector<data_type> vector_name(size,value) // 0 0 0 0 0
     vector<int> num = {1, 2, 3, 4, 5}; // Vector of integers initialized with values
 
-    //===========How to take Input===============//
+    //====================================================================How to take Input===================================================================================//
 
     vec.push_back(1);
 
@@ -41,7 +41,7 @@ int main()
         vec.push_back(n);
     }
 
-    //===========How to show output ===============//
+    //===================================================================How to show output===================================================================================//
     for (int num : num) // for each loop
     {
         cout << num << " ";
@@ -52,7 +52,7 @@ int main()
         cout << vec[i] << " " << '\n';
     }
 
-    //===========Capacity: size,resize,capacity,max_size,empty===============//
+    //====================================================Capacity: size,resize,capacity,max_size,empty===========================================================================//
 
     // size() -> it return the size of a vector
     vector<int> numbers = {1, 2, 3, 4, 5};
@@ -96,7 +96,7 @@ int main()
         cout << "Vector is not empty" << endl;
     }
 
-    //===========Modifiers: assign,push_back,pop_back,insert,erase,swap,clear===============//
+    //=========================================Modifiers: assign,push_back,pop_back,insert,erase,swap,clear===========================================================================//
 
     // assign()
     vector<int> numbers(5);
@@ -137,7 +137,7 @@ int main()
     num.front();      // 1
     num.back();       // 5
 
-    //===========Iterator: begin,end,rbegin,rend===============//
+    //========================================================================Iterator: begin,end,rbegin,rend=====================================================================//
 
     vector<int> v = {1, 2, 3, 4, 5};
     vector<int>::iterator it;
@@ -161,7 +161,7 @@ int main()
     }
 
 
-    //===========Others: replace(), reverse(),sort(), find()===============//
+    //=========================================================================Others: replace(), reverse(),sort(), find()=============================================================//
 
     //reverse(), sort(),
     vector<int> num = {1,2,3,4,5};
@@ -176,6 +176,13 @@ int main()
     else cout<<"Found"<<endl;
 
     //replace()
+    vector<int>v={1,2,3,2,5};
+    replace(v.begin(),v.end(),2,100); //1 100 3 100 5
+    for(int x:v)
+    {
+        cout<<x<<" ";
+    }
+
 
 
 
