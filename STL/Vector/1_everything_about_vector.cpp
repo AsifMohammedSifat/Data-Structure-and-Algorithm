@@ -18,7 +18,7 @@ int main()
      * Output
      *
      * Capacity: size,resize,capacity,max_size,empty
-     * Modifiers: assign,push_back,pop_back,insert,erase,swap,clear
+     * Modifiers: assign,push_back,pop_back,insert,erase,clear
      * Iterator: begin,end,rbegin,rend
      *
      */
@@ -94,5 +94,46 @@ int main()
     {
         cout << "Vector is not empty" << endl;
     }
+
+    //===========Modifiers: assign,push_back,pop_back,insert,erase,swap,clear===============//
+
+    // assign()
+    vector<int> numbers(5); 
+    vector<int> number = {1,2,3,4,5};
+    numbers = number;
+    numbers.assign(number.begin(),number.end()); // it works like -> numbers = number
+    numbers.assign(10, 42); // resize to 10 and assign 42  //42 42 42 42 42 42 42 42 42 42
+
+
+    //insert()
+    vector<int> num ={1,2,3,4,5};
+    vector<int> example = {10,20,30};
+
+    num.insert(num.begin()+2,50); // 1 2 50 3 4 5
+    num.insert(num.begin()+2,3,50); //1 2 50 50 50 3 4 5
+    num.insert(num.begin()+2,example.begin(),example.end()); // 1 2 10 20 30 3 4 5
+
+
+    //erase()
+    vector<int> num ={1,2,3,4,5};
+
+    num.erase(num.begin()+2); // 1 2 4 5
+    num.erase(num.begin()+1,num.begin()+4); // 1 5
+
+    //clear()    
+    vector<int> num ={1,2,3,4,5};
+    num.clear(); // it set the size of vector 0.But,not permanently delete vector element
+
+    //swap()
+    vector<int> num ={1,2,3,4,5};
+    vector<int> example = {10,20,30};
+
+    num.swap(example); // num = {10,20,30} & example = {1,2,3,4,5};
+    vector<int>().swap(num); // num vector is empty by anonymus vector funciton
+
+
+
+
+
     return 0;
 }
