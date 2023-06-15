@@ -182,7 +182,54 @@ int main()
     {
         cout<<x<<" ";
     }
+/*============================================|Unique() with 3 types|=====================================================================*/
+    /*Type-1*/
+    vector<int> vec = {1,2,3,4,5,1,2,3,4,5};
 
+    sort(vec.begin(),vec.end());
+
+    int sz = unique(vec.begin(),vec.end())-vec.begin();  // calculate the size of unique element
+    //uses of sz
+    for(int i = 0;i<sz;i++){
+        cout<<vec[i]<<" "; 
+    }
+    cout<<endl;
+
+    /*Type-2*/
+    //uses of sz1
+    vector<int> vec = {1,2,3,4,5,1,2,3,4,5};
+    sort(vec.begin(),vec.end());// 1 1 2 2 3 3 4 4 5 5
+
+    auto sz1 = unique(vec.begin(),vec.end());  // pass last address of unique value  
+    /**
+     * 1 2 3 4 5 1 2 3 4 5
+     *             |
+     *            end()
+     *      Which received sz1
+     * 
+    */
+    for(auto i = vec.begin();i!=sz1;i++){
+        cout<<*i<<" ";
+    }
+
+
+    /*Type-3*/
+     std::vector<int> numbers = {1, 2, 2, 3, 3, 3, 4, 4, 5};
+
+    // Removing consecutive duplicates
+    auto newEnd = std::unique(numbers.begin(), numbers.end());
+
+    // Erasing the elements after newEnd
+    numbers.erase(newEnd, numbers.end());
+
+    // Output the unique elements
+    for (const auto& num : numbers) {
+        std::cout << num << " ";
+    }
+    std::cout << std::endl;
+
+    
+/*============================================|    |=====================================================================*/
 
 
 
