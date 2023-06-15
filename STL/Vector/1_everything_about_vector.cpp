@@ -20,7 +20,7 @@ int main()
      * Capacity: size,resize,capacity,max_size,empty
      * Modifiers: assign,push_back,pop_back,insert,erase,clear
      * Iterator: begin,end,rbegin,rend
-     * Others: replace(), reverse(), find(), unique(),  
+     * Others: replace(), reverse(), find(), unique(), max_element(), min_element()
      *
      */
 
