@@ -20,7 +20,7 @@ int main()
      * Capacity: size,resize,capacity,max_size,empty
      * Modifiers: assign,push_back,pop_back,insert,erase,clear
      * Iterator: begin,end,rbegin,rend
-     * Others: replace(), reverse(), find()
+     * Others: replace(), reverse(), find(), unique(),  
      *
      */
 
@@ -229,7 +229,27 @@ int main()
     std::cout << std::endl;
 
     
-/*============================================|    |=====================================================================*/
+/*============================================|max_element() and min_element()|=====================================================================*/
+        /*
+        max_element() and min_element()
+        1) find the max and min value;
+        2) find the index of max and min value
+    */
+    vector<int> vec = {1, 2, 2, 3, 4, 5, 7, 8, 9, 5, 7};
+
+    // 1) find value
+    vector<int>::iterator it = max_element(vec.begin(), vec.end());
+    // it will pass the address of max element
+    cout << *it << endl;
+
+    vector<int>::iterator it1 = max_element(vec.begin() + 1, vec.begin() + 4);
+    // it will find the max elemetn from 1 to before 4 index
+    cout << *it1 << endl;
+
+    // 1) find index
+    int indx = max_element(vec.begin(), vec.end())-vec.begin();
+    // it will pass the index of max element
+    cout << indx << endl;
 
 
 
