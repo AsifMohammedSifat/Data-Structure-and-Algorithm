@@ -308,4 +308,36 @@ int main()
         }
     }
     cout << "YES\n";
+    /*
+    Question: Take a singly linked list as input, then print the maximum value of them.
+
+    Sample Input:                           Sample Output:
+    2 4 1 3 5 4 2 5 -1                            5
+
+    Sample Input:                           Sample Output:
+    2 4 1 3 5 8 2 5 -1                             8
+
+    */
+
+    Node *head = NULL;
+
+    int val;
+    while (true)
+    {
+        cin >> val;
+        if (val == -1)
+            break;
+        insertAtTail(head, val);
+    }
+    Node *temp = head;
+    int max = INT_MIN;
+
+    for (Node *i = temp; i != NULL; i = i->next)
+    {
+        if (i->val > max)
+        {
+            max = i->val;
+        }
+    }
+    cout << max << endl;
 }
