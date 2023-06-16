@@ -180,7 +180,7 @@ int main()
         insertAtTail(head, val);
     }
     cout << getSize(head);
-  /**
+    /**
      * Question: Take a singly linked list as input and check if the linked list contains any   duplicate value. You can assume that the maximum value will be 100.
      *
      * Sample Input:
@@ -224,6 +224,88 @@ int main()
         cout << "YES\n";
     else
         cout << "NO\n";
-  
-  
- }
+    /*
+  Question: Take a singly linked list as input and print the middle element. If there are multiple values in the middle print both.
+
+  Sample Input:                           Sample Output:
+  2 4 6 8 10 -1                                6
+
+   Sample Input:                           Sample Output:
+  1 2 3 4 5 6 -1                              3 4
+
+  */
+
+    Node *head = NULL;
+
+    int val;
+    while (true)
+    {
+        cin >> val;
+        if (val == -1)
+            break;
+        insertAtTail(head, val);
+    }
+
+    int sz = getSize(head);
+    Node *temp = head;
+
+    if (sz % 2 == 0)
+    {
+        int count = 1;
+        while (temp != NULL)
+        {
+            if (count == sz / 2 || count == (sz) / 2 + 1)
+            {
+                cout << temp->val << " ";
+            }
+            temp = temp->next;
+            count++;
+        }
+    }
+    else
+    {
+        int count = 1;
+        while (temp != NULL)
+        {
+            if (count == sz / 2 + 1)
+            {
+                cout << temp->val << " ";
+            }
+            temp = temp->next;
+            count++;
+        }
+    }
+
+    /*
+   Question: Take a singly linked list as input and check if the linked list is sorted in ascending order.
+
+   Sample Input:                           Sample Output:
+   1 5 6 8 9 -1                               YES
+
+   Sample Input:                           Sample Output:
+   2 4 6 5 8 4 -1                             NO
+
+   */
+
+    Node *head = NULL;
+
+    int val;
+    while (true)
+    {
+        cin >> val;
+        if (val == -1)
+            break;
+        insertAtTail(head, val);
+    }
+    Node *temp = head;
+
+    for (Node *i = temp->next; i != NULL; i = i->next, temp = temp->next)
+    {
+        if (i->val < temp->val)
+        {
+            cout << "NO\n";
+            return 0;
+        }
+    }
+    cout << "YES\n";
+}
