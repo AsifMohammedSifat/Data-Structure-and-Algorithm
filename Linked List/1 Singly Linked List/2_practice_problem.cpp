@@ -340,4 +340,36 @@ int main()
         }
     }
     cout << max << endl;
+    
+    /*
+    Question: Take a singly linked list as input and sort it in descending order. Then print the list.
+
+    Sample Input:                           Sample Output:
+    20 40 30 10 50 60 -1                      60 50 40 30 20 10
+
+    */
+
+    Node *head = NULL;
+
+    int val;
+    while (true)
+    {
+        cin >> val;
+        if (val == -1)
+            break;
+        insertAtTail(head, val);
+    }
+    Node *temp = head;
+
+    for (Node *i = temp; i->next!= NULL; i = i->next)
+    {
+        for(Node* j = temp->next;j!=NULL;j = j->next){
+            if(i->val<j->val){
+                swap(i->val,j->val);
+            }
+        }
+    }
+
+    printList(head);
+    return 0;
 }
