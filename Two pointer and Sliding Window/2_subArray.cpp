@@ -20,9 +20,10 @@ Sample Output:
 1 2 3  = 6
 2 3 4  = 9
 3 4 5  = 12
-
+Maximum subarray summation is:12
 */
 //Time complexity : O(n*k)
+
 #include<bits/stdc++.h>
 using namespace std;
 int main(){
@@ -35,16 +36,17 @@ int main(){
 
     int k;
     cin>>k;
-    int sum = 0;
-    //O(n*k)
-    for(int i=0;i<=n-k;i++){ //O(n)
+    int sum = 0,mx = INT_MIN;
+    for(int i=0;i<=n-k;i++){
         sum = 0;
-        for(int j=i;j<i+k;j++){ //O(k)
+        for(int j=i;j<i+k;j++){
             cout<<arr[j]<<" ";
             sum+=arr[j];
         }
         cout<<" = "<<sum<<endl;
+        mx = max(mx,sum);
     }
+    cout<<"Maximum subarray summation is:"<<mx<<endl;
               
     return 0;
 }
