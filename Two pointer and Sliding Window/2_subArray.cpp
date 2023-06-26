@@ -22,6 +22,7 @@ Sample Output:
 3 4 5  = 12
 
 */
+//Time complexity : O(n*k)
 #include<bits/stdc++.h>
 using namespace std;
 int main(){
@@ -35,9 +36,10 @@ int main(){
     int k;
     cin>>k;
     int sum = 0;
-    for(int i=0;i<=n-k;i++){
+    //O(n*k)
+    for(int i=0;i<=n-k;i++){ //O(n)
         sum = 0;
-        for(int j=i;j<i+k;j++){
+        for(int j=i;j<i+k;j++){ //O(k)
             cout<<arr[j]<<" ";
             sum+=arr[j];
         }
