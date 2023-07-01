@@ -21,11 +21,16 @@ int main()
     // declearation
 
     map<int, string> mp; // map<key,value> map_name;
+    // map<string,int> keyString; // we can use any kind of data type as index as well;
 
     // initialization
     mp[1] = "one";
     mp[2] = "two";
     mp[3] = "three";
+
+    // keyString["one"] = 1;
+    // keyString["two"] = 2;
+    // keyString["three"] = 3;
 
     // print map value;
 
@@ -58,6 +63,21 @@ int main()
     // type-4    
     cout<<"for each Loop - shortcut\n";
     for (auto [f,s] : mp)
+    { // using for each loop
+        cout << f << " " << s << endl;
+    }
+
+    //print keyString map values
+    map<string,int> keyString;
+
+    keyString["one"] = 1;
+    keyString["two"] = 2;
+    keyString["three"] = 3;
+
+    cout<<"Print keyStirng Map value";
+
+    //print
+    for (auto [f,s] : keyString)
     { // using for each loop
         cout << f << " " << s << endl;
     }
