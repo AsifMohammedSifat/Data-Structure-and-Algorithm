@@ -1,1 +1,30 @@
+                                                                    STL(Standard Template Library)
+                                                                            1) Container
+                                                                            2) Iterator
+                                                                            3) Algorithm
+                                                                            4) Functors
+==========================================================================================================================================================================================
+                                                                            1) Container:                                                                          ==========================================================================================================================================================================================
+I)Sequence containers:
+    Sequence containers implement data structures that can be accessed sequentially. 
+    
+    A) array: Static contiguous array (class template)
+    B) vector: Dynamic contiguous array (class template)
+    C) deque: Double-ended queue (class template)
+    D) forward_list: Singly-linked list (class template)
+    E) list: Doubly-linked list (class template)
+
+II)Associative containers:
+
+    Associative containers implement sorted data structures that can be quickly searched (O(log n) complexity). 
+    
+    A) Set: Collection of unique keys, sorted by keys (class template) --> Build with  Balanced binary search tree, such as a Red-Black Tree.
+    B) Map: Collection of key-value pairs, sorted by keys, keys are unique (class template). -> Build with Binary Search Tree which is called a Red-Black Tree.
+    C) multiset: Collection of keys, sorted by keys (class template)
+    D) multimap: Collection of key-value pairs, sorted by keys (class template)
+
+
+
+
+
 
