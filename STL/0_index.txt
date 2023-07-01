@@ -20,8 +20,23 @@ II)Associative containers:
     
     A) Set: Collection of unique keys, sorted by keys (class template) --> Build with  Balanced binary search tree, such as a Red-Black Tree.
     B) Map: Collection of key-value pairs, sorted by keys, keys are unique (class template). -> Build with Binary Search Tree which is called a Red-Black Tree.
-    C) multiset: Collection of keys, sorted by keys (class template)
-    D) multimap: Collection of key-value pairs, sorted by keys (class template)
+    C) multiset: Collection of keys, sorted by keys (class template) --> Hash Table or Hash Map
+    D) multimap: Collection of key-value pairs, sorted by keys (class template) --> Hash Table or Hash Map
+
+III) Container adapters
+
+    Container adapters provide a different interface for sequential containers. 
+    
+    A) stack: Adapts a container to provide stack (LIFO data structure) (class template). --->Build with vector, Doubly linked list, Deque
+    B) queue: Adapts a container to provide queue (FIFO data structure) (class template). --->Build with vector, Doubly linked list, Deque
+    C) priority_queue: Adapts a container to provide priority queue (class template). --> build with complete binary tree
+
+
+IV) Unordered associative containers: (Build with  Hash Table or Hash Map data structure)
+    A) unordered_set	Unordered Set (class template)
+    B) unordered_multiset	Unordered Multiset (class template)
+    C) unordered_map	Unordered Map (class template)
+    D) unordered_multimap	Unordered Multimap (class template)
 
 
 
