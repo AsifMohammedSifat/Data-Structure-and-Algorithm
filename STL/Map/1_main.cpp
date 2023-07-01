@@ -10,14 +10,15 @@
 */
 /*
     1)Basic Operation: declearation,initialization,print
-
-    2)Iterator:
-    3)Algorithm:
+    2)Iterator: begin(), end()
+    3)Algorithm: insert(), count(), size(), erase(), clear(), find(), empty(), swap()
 */
 #include <bits/stdc++.h>
 using namespace std;
 int main()
 {
+
+    /*===============================|Container and Iterator|============================================*/
     // declearation
 
     map<int, string> mp; // map<key,value> map_name;
@@ -93,6 +94,8 @@ int main()
     { // using for each loop
         cout << f << " " << s << endl;
     }
+    /*===============================|Algorithm|============================================*/
+  
 
     return 0;
 }
