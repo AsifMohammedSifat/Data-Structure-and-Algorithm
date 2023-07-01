@@ -21,18 +21,28 @@ int main()
     // declearation
 
     map<int, string> mp; // map<key,value> map_name;
-    // map<string,int> keyString; // we can use any kind of data type as index as well;
+    map<string,int> keyString;
 
     // initialization
     mp[1] = "one";
     mp[2] = "two";
     mp[3] = "three";
 
-    // keyString["one"] = 1;
-    // keyString["two"] = 2;
-    // keyString["three"] = 3;
+    keyString["one"] = 1;
+    keyString["two"] = 2;
+    keyString["three"] = 3;
 
     // print map value;
+
+    //type - 0
+    cout<<"Manually print\n";
+
+    cout<<keyString["one"]<<endl;
+    cout<<keyString["two"]<<endl;
+    cout<<keyString["three"]<<endl;
+
+
+
 
     // type - 1
     cout<<"for Loop\n";
@@ -67,17 +77,19 @@ int main()
         cout << f << " " << s << endl;
     }
 
-    //print keyString map values
-    map<string,int> keyString;
 
-    keyString["one"] = 1;
-    keyString["two"] = 2;
-    keyString["three"] = 3;
+
+    //print keyString map values
+    map<string,int> keyString2;
+
+    keyString2["one"] = 1;
+    keyString2["two"] = 2;
+    keyString2["three"] = 3;
 
     cout<<"Print keyStirng Map value";
 
     //print
-    for (auto [f,s] : keyString)
+    for (auto [f,s] : keyString2)
     { // using for each loop
         cout << f << " " << s << endl;
     }
