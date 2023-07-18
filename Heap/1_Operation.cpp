@@ -8,184 +8,110 @@
 ||Phitron,ProgrammingHero||
 ||-----------------------||
 */
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
 
-class Node{
+class MaxHeap
+{
 public:
-    int val;
-    Node* left;
-    Node* right;
-    Node(int val){
-        this->val = val;
-        this->left = NULL;
-        this->right = NULL;
-    }
-};
-//insert - manually
-void insert(Node* &root,int val){
-    Node* newNode = new Node(val);
-
-    if(root==NULL){
-        root = newNode;
-        return;
-    }
-
-    Node* cur = root;
-    Node* par = NULL;
-
-    while(cur!=NULL){
-        if(cur->val<newNode->val){
-            par = cur;
-            cur = cur->right;
-        }
-        else{
-            par = cur;
-            cur = cur->left;
-        }
-    }
-
-    if(newNode->val>par->val){
-        par->right = newNode;
-    }else{
-        par->left = newNode;
-    }
-
-}
-
-//print- Level Order
-void printBST(Node* root){
-    queue<Node*>q;
-    q.push(root);
-
-    while(!q.empty()){
-        Node* f = q.front();
-        q.pop();
-
-        cout<<f->val<<" ";
-
-        if(f->left) q.push(f->left);
-        if(f->right) q.push(f->right);
-
-    }
-    cout<<endl;
-
-}
-
-// search - recursive
-bool search_recursive(Node* root,int searchval){
-    if(root==NULL) return false;
-    if(root->val==searchval) return true;
-
-    if(root->val>searchval) return search_recursive(root->left,searchval);
-    else return search_recursive(root->right,searchval);
-}
-
-//search - manual
-bool search_manual(Node* root,int searchval){
-    Node* cur = root;
-    while(cur!=NULL){
-        if(searchval<cur->val) cur = cur->left;
-        else if(searchval>cur->val) cur = cur->right;
-        else return true;
-    }
-    return false;
-}
-
-//deletion  ->No child -> One child  ->Two child 
- void Delete(Node* root,int val)
+    vector<int> v;
+    MaxHeap()
     {
-        Node* cur = root;
-        Node* prv = NULL;
+    }
 
-        while(cur != NULL)
+    void up_heapify(int idx)
+    {
+        while (0 < idx && v[idx] > v[(idx - 1) / 2])
         {
-            if(val > cur->val)
+            swap(v[(idx - 1) / 2], v[idx]);
+            idx = (idx - 1) / 2;
+        }
+    }
+    void down_heapify(int idx)
+    {
+        while (true)
+        {
+            int largest = idx;
+            int l = 2 * idx + 1;
+            int r = 2 * idx + 2;
+
+            if (l < v.size() && v[largest] < v[l])
             {
-                prv = cur;
-                cur = cur->right;
+                largest = l;
             }
-            else if(val < cur->val)
+            if (r < v.size() && v[largest] < v[r])
             {
-                prv = cur;
-                cur = cur->left;
+                largest = r;
             }
-            else{
+            if (largest == idx)
+            {
                 break;
             }
+            swap(v[idx], v[largest]);
+            idx = largest;
         }
-        if(cur== NULL)
-        {
-            cout<<"val is not present in BST\n";
-            return;
-        }
-        //Case 1: both child is NULL
-        if(cur->left == NULL &&cur->right==NULL)
-        {
-            if(prv->left!=NULL && prv->left->val== cur->val)
-            {
-                prv->left = NULL;
-            }
-            else{
-                prv->right = NULL;
-            }
-            delete cur;
-            return;
-        }
-        //Case 2: node has only one child
-        if(cur->left==NULL && cur->right != NULL)
-        {
-            if(prv->left!=NULL &&prv->left->val== cur->val)
-            {
-                prv->left = cur->right;
-            }
-            else{
-                prv->right = cur->right;;
-            }
-            delete cur;
-            return;
-        }
-        if(cur->left!=NULL && cur->right == NULL)
-        {
-            if(prv->left!=NULL &&prv->left->val== cur->val)
-            {
-                prv->left = cur->left;
-            }
-            else{
-                prv->right = cur->left;
-            }
-            delete cur;
-            return;
-        }
-        //Case 3: node has two child
-        Node *tmp = cur->right;
-        while(tmp->left!=NULL)
-        {
-            tmp = tmp->left;
-        }
-        int saved = tmp->val;
-        Delete(root,saved);
-        cur->val = saved;
-
     }
 
+    void push(int val)
+    {
+        v.push_back(val);
+        up_heapify(v.size() - 1);
+    }
 
-int main(){
-    Node* root = NULL;
+    void pop()
+    {
+        swap(v[0], v[v.size() - 1]);
+        v.pop_back();
+        down_heapify(0);
+    }
 
-    insert(root,5);
-    insert(root,4);
-    insert(root,6);
-    insert(root,2);
-    insert(root,7);
+    void printHeap()
+    {
+        for (int val : v)
+        {
+            cout << val << " ";
+        }
+        cout << endl;
+    }
 
-    printBST(root); 
+    int top()
+    {
+        return v[0];
+    }
 
-    if(search_recursive(root,7)) cout<<"YES\n";
-    else cout<<"NO\n";      
+    void buildHeapFromArray(vector<int> arr)
+    {
+        v.clear();
+        v = arr;
+        int n = arr.size();
+        int lastNonLeafNode = n / 2 - 1;
 
-    if(search_manual(root,57)) cout<<"YES\n";
-    else cout<<"NO\n";         
-              
+        for (int i = lastNonLeafNode; i >= 0; i--)
+        {
+            down_heapify(i);
+        }
+    }
+};
+
+int main()
+{
+    MaxHeap mx;
+    mx.push(1);
+    mx.push(2);
+    mx.push(3);
+    mx.push(4);
+    mx.push(5);
+
+    mx.printHeap();
+
+    mx.pop();
+    mx.printHeap();
+
+    cout << mx.top() << endl;
+
+    vector<int> arr = {1, 2, 3, 4, 5};
+    mx.buildHeapFromArray(arr);
+    mx.printHeap();
+
     return 0;
 }
