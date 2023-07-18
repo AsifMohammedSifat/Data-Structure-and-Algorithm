@@ -22,6 +22,7 @@ Ans:
     Parent : (index - 1)/2
     Child : 2*index + 1 (Left child)
             2*index + 2 (Right child)
+    Last Non Leaf Node : n/2-1 [ Where n = number of nodes]
 2) What is Complete Binary tree?
 3) Array representaiton of Complete Binary tree.
 4) Insertion
