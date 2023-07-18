@@ -1,16 +1,29 @@
-1) What is Binary Search Tree
+1) What is Heap?
+Ans: Tree based(Complete Binary Tree) sequential/ linear data structure.
 Ans: 
-    A binary search tree (BST) is a data structure used for organizing and managing a collection of elements in a way that allows for efficient searching, insertion, and deletion operations. It is called a "binary" search tree because each node in the tree has at most two child nodes, commonly referred to as the left child and the right child.
+    Simple and Powerful Data Structure.
+    Varient of Binary Tree (Complete Binary Tree)
+    
+    Operation:
+            -> Insert - O(logn) where BST support insertion around - O(h) [O(n) or O(logn)]
+            -> Deletion - O(logn)
+            -> get Max Value (Max Heap) / Min Value (Min Heap) - O(1)
+            -> Extract Max // O(logn)
+            -> Build heap form array (insert O(n))
+            -> Heap Sort
 
-    The key characteristic of a binary search tree is that it maintains the following property:
+    Type of Heap:
+                1) Max Heap (Return max value at O(1) time) - (up-heapify)
+                   Property: root value > child value
+                2) Min Heap (Return min value at O(1) time) - (down-heapify)
+                   Property: root value < child value
 
-    -> The left subtree of a node contains only nodes with keys less than the node's key.
-    -> The right subtree of a node contains only nodes with keys greater than the node's key.
-
-    Operations:
-              -> Insert, Delete, Search
-
-2) BST Insertion Theory + Complexity + Implementation
-   Insert + Delete + Search :O(height) Random Order insertion O(logn)
-                                       Sorted Order insertion - O(n)
-                                       
+    Relation between parent and child:
+    Parent : (index - 1)/2
+    Child : 2*index + 1 (Left child)
+            2*index + 2 (Right child)
+2) What is Complete Binary tree?
+3) Array representaiton of Complete Binary tree.
+4) Insertion
+5) Deletion
+6) Array to Heap Convertion
