@@ -197,19 +197,21 @@ int main()
 
     /*Type-2*/
     //uses of sz1
-    vector<int> vec = {1,2,3,4,5,1,2,3,4,5};
-    sort(vec.begin(),vec.end());// 1 1 2 2 3 3 4 4 5 5
+    vector<int> vec = {1, 2, 3, 4, 5, 1, 2, 3, 4, 5};
+    sort(vec.begin(), vec.end()); // 1 1 2 2 3 3 4 4 5 5
 
-    auto sz1 = unique(vec.begin(),vec.end());  // pass last address of unique value  
+    auto sz1 = unique(vec.begin(), vec.end()); // pass last address of unique value
+    cout<<*sz1<<nl; //address of 3
     /**
-     * 1 2 3 4 5 1 2 3 4 5
-     *             |
-     *            end()
+     * 1 2 3 4 5 3 4 4 5 5
+     *           |
+     *          end()
      *      Which received sz1
-     * 
-    */
-    for(auto i = vec.begin();i!=sz1;i++){
-        cout<<*i<<" ";
+     *
+     */
+    for (auto i = vec.begin(); i != vec.end(); i++)
+    {
+        cout << *i << " ";
     }
 
 
