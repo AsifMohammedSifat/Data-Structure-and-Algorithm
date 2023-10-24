@@ -1,4 +1,4 @@
-/*                       Part 1 : Bit Operation
+                         Part 1 : Bit Operation
 Logic Gate:
 ========================
 AND - &
@@ -60,4 +60,4 @@ BCD Code: 16 8 4 2 1
 6>>2 = 6 / 2^2 = 1 
      = 24
 
-*/
+
