@@ -1,4 +1,4 @@
-/*                          Part - 2: Tricks
+                            Part - 2: Tricks
 
 Trick 1:   
 ============= 
@@ -152,4 +152,4 @@ B XOR C = A
 Example: https://atcoder.jp/contests/abc213/tasks/abc213_a
 Example: https://codeforces.com/problemset/problem/1421/A
 
-*/
+
