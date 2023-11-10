@@ -1,0 +1,94 @@
+=====================================================================================================================================
+Height:https://www.codingninjas.com/studio/problems/tree-height_4609628?leftPanelTabValue=PROBLEM
+
+int heightOfBinaryTree(TreeNode<int> *root)
+{
+	// Write your code here.
+    if(root==NULL) return 0;
+
+    int left = heightOfBinaryTree(root->left);
+    int right = heightOfBinaryTree(root->right);
+    return max(left,right) + 1;
+}
+=====================================================================================================================================
+Depth:https://leetcode.com/problems/maximum-depth-of-binary-tree/description/
+
+class Solution {
+public:
+    int solve(TreeNode* root){
+        if(root==NULL) return 0;
+        int l = solve(root->left);
+        int r = solve(root->right);
+
+        return max(l,r)+1;
+    }
+    int maxDepth(TreeNode* root) {
+        return solve(root);
+        
+    }
+};
+=====================================================================================================================================
+Diameter:https://leetcode.com/problems/diameter-of-binary-tree/description/
+
+class Solution {
+public:
+    int mx = 0;
+    int height(TreeNode* root){
+        if(root==NULL) return 0;
+        int l = height(root->left);
+        int r = height(root->right);
+        int d = l+r;
+        mx = max(mx,d);
+        return max(l,r)+1;
+    }
+    int diameterOfBinaryTree(TreeNode* root) {
+        int ans = 0;
+        int l = height(root->left);
+        int r = height(root->right);
+        return max(mx,l+r);
+    }
+};
+=====================================================================================================================================
+Invert Tree: https://leetcode.com/problems/invert-binary-tree/description/
+
+
+class Solution {
+public:
+    TreeNode* invertTree(TreeNode* root) {
+        // Base Case
+        if(root==NULL)
+            return NULL;
+        invertTree(root->left); //Call the left substree
+        invertTree(root->right); //Call the right substree
+        // Swap the nodes
+        TreeNode* temp = root->left;
+        root->left = root->right;
+        root->right = temp;
+        return root; // Return the root
+    }
+};
+
+=====================================================================================================================================
+Subtree of Another Tree: https://leetcode.com/problems/subtree-of-another-tree/description/
+
+class Solution {
+public:
+    bool isSameTree(TreeNode* p, TreeNode* q) {
+        if (!p && !q) return true;
+        if (!p || !q) return false;
+        if (p->val != q->val) return false;
+
+        return isSameTree(p->left, q->left) && isSameTree(p->right, q->right); 
+    }
+    bool isSubtree(TreeNode* root, TreeNode* subRoot) {
+        if (!root || !subRoot)
+            return false;
+        
+        if (isSameTree(root, subRoot))
+            return true;
+        
+        return isSubtree(root->left, subRoot) || isSubtree(root->right, subRoot);
+
+    }
+};
+=====================================================================================================================================
