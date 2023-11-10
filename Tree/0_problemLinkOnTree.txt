@@ -30,6 +30,16 @@ public:
 =====================================================================================================================================
 Diameter:https://leetcode.com/problems/diameter-of-binary-tree/description/
 
+                            5
+                          /   \
+                        1       4
+                               /  \
+                              3    3
+                             /      \
+                            2        2
+                           /          \
+                          1             1
+
 class Solution {
 public:
     int mx = 0;
