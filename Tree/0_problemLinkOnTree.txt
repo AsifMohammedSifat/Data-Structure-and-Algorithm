@@ -92,3 +92,44 @@ public:
     }
 };
 =====================================================================================================================================
+Binary Tree Paths: https://leetcode.com/problems/binary-tree-paths/description/
+class Solution {
+vector<string> res;
+public:
+
+    void helper(TreeNode* root,string s){
+        if(!root){return;}
+        if(s.empty()){s+=(to_string(root->val));}
+        else{s=s+"->"+(to_string(root->val));}
+        if(!root->left && !root->right){
+            res.push_back(s);
+        }
+        helper(root->left,s);
+        helper(root->right,s);
+        // s.erase(s.end() - 3);
+    }
+
+    vector<string> binaryTreePaths(TreeNode* root) {
+        helper(root,"");
+        return res;
+    }
+};
+
+========================================================================================================================================
+
+Heap: kth Largest Element
+https://leetcode.com/problems/kth-largest-element-in-an-array/description/
+
+class Solution {
+public:
+    int findKthLargest(vector<int>& nums, int k) {
+
+       //Max-Heap
+        priority_queue<int>pq(nums.begin() , nums.end());
+        
+        while(--k)
+            pq.pop();
+
+        return pq.top();
+    }
+};
