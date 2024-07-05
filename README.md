@@ -12,3 +12,7 @@ https://docs.google.com/spreadsheets/d/1-wKcV99KtO91dXdPkwmXGTdtyxAfk1mbPXQg81R9
 https://docs.google.com/spreadsheets/d/11tevcTIBQsIvRKIZLbSzCeN4mCO6wD4O5meyrAIfSXw/edit#gid=136755630
 4. ২০ টা রিকার্শন রিলেটেড প্রব্লেম এবং ans 
 http://zobayer.blogspot.com/2009/12/cse-102-practice-recursions.html
+
+5. Stack and Queue:
+   https://www.hackerearth.com/practice/data-structures/stacks/basics-of-stacks/practice-problems/
+   https://www.cs.princeton.edu/courses/archive/spr01/cs126/exercises/adt.html
