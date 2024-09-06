@@ -13,7 +13,6 @@ using namespace std;
 
 int grid[100][100];
 int vis[100][100];
-int dist[100][100];
 int row, col;
 
 vector<pair<int, int>> child = {{0, 1}, {0, -1}, {-1, 0}, {1, 0}};
@@ -44,7 +43,6 @@ void dfs(int si, int sj)
 int main()
 {
     memset(vis, 0, sizeof(vis));
-    memset(dist, 0, sizeof(dist));
 
     cin >> row >> col;
 
