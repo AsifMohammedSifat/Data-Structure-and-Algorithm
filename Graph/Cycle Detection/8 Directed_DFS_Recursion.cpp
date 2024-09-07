@@ -25,7 +25,18 @@ Sample Input-02:
 Output: No Cycle
 
 
+Sample Input - 03:
+7 8
+0 4
+0 6
+1 0
+1 2
+2 3
+3 1
+4 5
+5 6
 
+Output: Cycle Exist
 */
 #include<bits/stdc++.h>
 using namespace std;
