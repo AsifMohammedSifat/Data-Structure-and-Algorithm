@@ -37,6 +37,13 @@ Sample Input - 03:
 5 6
 
 Output: Cycle Exist
+
+
+
+Note:
+visited[node] == 0  -> unvisited | apply dfs
+visited[node] == 1  -> paused | cycle detected
+visited[node] == 2  -> done node | continue
 */
 #include<bits/stdc++.h>
 using namespace std;
